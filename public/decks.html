@@ -1,13 +1,52 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Pokedeck - Decks</title>
-  </head>
-  <body>
-    <h1>Decks</h1>
-    <div id="decks-root"></div>
-    <script src="/js/decks.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header con Botones Desplazables</title>
+    <link rel="stylesheet" href="decks_styles.css">
+</head>
+<body>
+
+    <header class="scrollable-header">
+        <div id="header-buttons" class="button-container">
+            <!-- Los botones del header se generan por JS -->
+        </div>
+    </header>
+
+    <main>
+        <section class="grid-container">
+          <h2>Galería de botones</h2>
+          <div id="grid-buttons" class="grid-buttons">
+            <!-- Los botones de la cuadrícula se generan por JS -->
+          </div>
+        </section>
+    </main>
+
+    <script>
+      // Configuración: cambia estos valores si quieres más/menos botones
+      const HEADER_COUNT = 8;   // botones en el header
+      const GRID_COUNT = 60;    // botones en la cuadricula
+
+      // Generar botones del header
+      const headerContainer = document.getElementById('header-buttons');
+      for (let i = 1; i <= HEADER_COUNT; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'nav-button';
+        btn.textContent = `Botón ${i}`;
+        headerContainer.appendChild(btn);
+      }
+
+      // Generar botones de la cuadricula
+      const gridContainer = document.getElementById('grid-buttons');
+      for (let i = 1; i <= GRID_COUNT; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'grid-button';
+        btn.textContent = `Botón ${i}`;
+        gridContainer.appendChild(btn);
+      }
+    </script>
+
+</body>
 </html>
+
